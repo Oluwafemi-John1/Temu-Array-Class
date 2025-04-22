@@ -1,6 +1,5 @@
 const cart = []
 
-
 const addItem = () => {
     if(item.value === '') {
         // alert('Haba now, fill in the inputs joor')
