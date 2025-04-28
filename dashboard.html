@@ -12,16 +12,15 @@
 
 <body class="bg-body-tertiary">
     <div class="container-fluid col-lg-6 col-10 mx-auto mt-lg-4 mt-3 p-lg-4 p-2 shadow rounded-3">
-        <h3 class="text-center text-decoration-underline">Welcome to Temu Express, Sign Up</h3>
+        <h3 class="text-center text-decoration-underline">Temu Express</h3>
         <p style="display: none;" id="errorMsg" class="animate__animated animate__pulse animate__infinite alert alert-danger text-center p-2">Haba now, fill in the inputs
             joor</p>
-        <input type="text" class="form-control shadow-none my-lg-3 my-2" placeholder="First Name" id="firstName">
-        <input type="text" class="form-control shadow-none my-lg-3 my-2" placeholder="Last Name" id="lastName">
-        <input type="email" class="form-control shadow-none my-lg-3 my-2" placeholder="Email" id="email">
-        <input type="password" class="form-control shadow-none my-lg-3 my-2" placeholder="Password" id="password">
-        <button onclick="signUp()" class="btn btn-dark my-3 w-100">Submit</button>
+        <input type="text" class="form-control shadow-none my-lg-3 my-2" placeholder="Add items here" id="item">
+        <button onclick="addItem()" class="btn btn-dark my-3 w-100">Add</button>
+        <button id="btnDelete" style="display: none;" onclick="deleteAnyItem()" class="btn btn-danger my-3 w-100">Delete any item</button>
+        <div id="show"></div>
     </div>
 </body>
-<script src="index.js"></script>
+<script src="script.js"></script>
 
 </html>
