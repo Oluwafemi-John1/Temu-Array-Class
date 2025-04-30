@@ -1,4 +1,4 @@
-const toast = (text, background, color, position='right') => {
+const toast = (text, background, color, position = 'right') => {
     Toastify({
         text,
         duration: 3000,
@@ -21,6 +21,10 @@ const signUp = () => {
     if (firstName.value === '' || lastName.value === '' || email.value === '' || password.value === '') {
         // errorMsg.style.display = 'block'
         toast('Haba now, fill in the inputs joor😠👿', '#f00', '#fff')
+        sub.innerHTML = '...loading'
+        setTimeout(() => {
+            sub.innerHTML = 'Submit'
+        }, 1000)
     } else {
         errorMsg.style.display = 'none'
 
