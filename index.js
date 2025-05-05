@@ -1,3 +1,4 @@
+
 const toast = (text, background, color, position = 'right') => {
     Toastify({
         text,
@@ -15,7 +16,15 @@ const toast = (text, background, color, position = 'right') => {
     }).showToast();
 }
 
-const allUsers = []
+let allUsers = []
+
+if(localStorage.users) {
+    let retrieved = JSON.parse(localStorage.getItem('users'))
+    console.log(retrieved);
+    allUsers = retrieved
+} else {
+    allUsers = []
+}
 
 const signUp = () => {
     if (firstName.value === '' || lastName.value === '' || email.value === '' || password.value === '') {
@@ -26,7 +35,8 @@ const signUp = () => {
             sub.innerHTML = 'Submit'
         }, 1000)
     } else {
-        errorMsg.style.display = 'none'
+        // errorMsg.style.display = 'none'
+        sub.innerHTML = '...loading'
 
         const fName = document.getElementById('firstName').value
         const lName = document.getElementById('lastName').value
@@ -43,5 +53,10 @@ const signUp = () => {
         document.getElementById('lastName').value = ''
         document.getElementById('email').value = ''
         document.getElementById('password').value = ''
+
+        localStorage.users = JSON.stringify(allUsers)
+        setTimeout(()=>{
+            window.location.href = 'signin.html'
+        }, 2000)
     }
 }
