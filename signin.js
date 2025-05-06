@@ -34,15 +34,15 @@ const signIn = () => {
         const signInObj = { mail, pass }
         // console.log(signInObj);
 
-        let found = gottenUsers.find(user=>user.mail == mail && user.pass == pass)
+        let found = gottenUsers.find(user => user.mail == mail && user.pass == pass)
         console.log(found);
         localStorage.person = JSON.stringify(found)
 
-        if(found == undefined) {
-        toast('User not found', '#f01400', '#fff')
+        if (found == undefined) {
+            toast('User not found', '#f01400', '#fff')
         } else {
             toast('Sign in successful😁', '#006400', '#fff')
-            setTimeout(()=>{
+            setTimeout(() => {
                 window.location.href = 'dashboard.html'
             }, 2000)
         }

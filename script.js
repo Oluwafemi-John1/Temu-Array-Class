@@ -1,3 +1,23 @@
+const checkPerson = () => {
+    if(localStorage.person) {
+        const signedInUser = JSON.parse(localStorage.getItem('person'))
+        console.log(signedInUser);
+        showPerson.innerHTML = `<h4 class="my-3 text-center">Welcome ${signedInUser.fName} ${signedInUser.lName},</h4>`
+    } else {
+        body.innerHTML = `<h4 class="my-3 text-center">You are not signed in, redirecting you to sign in...</h4>`
+        setTimeout(()=>{
+            window.location.href = 'signin.html'
+        }, 1500)
+    }
+}
+checkPerson()
+
+const signOut = () => {
+    localStorage.removeItem('person')
+    checkPerson()
+}
+
+
 const cart = []
 
 const addItem = () => {
