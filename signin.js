@@ -34,7 +34,7 @@ const signIn = () => {
         const signInObj = { mail, pass }
         // console.log(signInObj);
 
-        let found = gottenUsers.find(user=>user.mail == mail)
+        let found = gottenUsers.find(user=>user.mail == mail && user.pass == pass)
         console.log(found);
         localStorage.person = JSON.stringify(found)
 

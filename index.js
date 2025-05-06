@@ -18,7 +18,7 @@ const toast = (text, background, color, position = 'right') => {
 
 let allUsers = []
 
-if(localStorage.users) {
+if (localStorage.users) {
     let retrieved = JSON.parse(localStorage.getItem('users'))
     console.log(retrieved);
     allUsers = retrieved
@@ -37,6 +37,9 @@ const signUp = () => {
     } else {
         // errorMsg.style.display = 'none'
         sub.innerHTML = '...loading'
+        setTimeout(() => {
+            sub.innerHTML = 'Submit'
+        }, 1500)
 
         const fName = document.getElementById('firstName').value
         const lName = document.getElementById('lastName').value
@@ -44,19 +47,23 @@ const signUp = () => {
         const pass = document.getElementById('password').value
 
         const userObj = { fName, lName, mail, pass }
-        // console.log(userObj);
-        allUsers.push(userObj)
-        toast('Sign up successful😁', '#006400', '#fff')
-        console.log(allUsers);
+        let found = allUsers.find(eachUser => eachUser.mail == mail)
+        console.log(found);
+        if (found == undefined) {
+            allUsers.push(userObj)
+            toast('Sign up successful😁', '#006400', '#fff')
+            console.log(allUsers);
+            document.getElementById('firstName').value = ''
+            document.getElementById('lastName').value = ''
+            document.getElementById('email').value = ''
+            document.getElementById('password').value = ''
 
-        document.getElementById('firstName').value = ''
-        document.getElementById('lastName').value = ''
-        document.getElementById('email').value = ''
-        document.getElementById('password').value = ''
-
-        localStorage.users = JSON.stringify(allUsers)
-        setTimeout(()=>{
-            window.location.href = 'signin.html'
-        }, 2000)
+            localStorage.users = JSON.stringify(allUsers)
+            setTimeout(() => {
+                window.location.href = 'signin.html'
+            }, 2000)
+        } else {
+            toast('Account already exists, kindly sign in with your details', '#00f', '#fff')
+        }
     }
 }
