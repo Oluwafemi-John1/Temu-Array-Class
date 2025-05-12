@@ -9,13 +9,64 @@
         integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <style>
+        /* From Uiverse.io by Shoh2008 */
+        .loader {
+            width: 45px;
+            height: 40px;
+            background: linear-gradient(#0000 calc(1*100%/6), #415307 0 calc(3*100%/6), #0000 0),
+                linear-gradient(#0000 calc(2*100%/6), #5d1616 0 calc(4*100%/6), #0000 0),
+                linear-gradient(#0000 calc(3*100%/6), #062f52 0 calc(5*100%/6), #0000 0);
+            background-size: 10px 400%;
+            background-repeat: no-repeat;
+            animation: matrix 1s infinite linear;
+        }
 
+        @keyframes matrix {
+            0% {
+                background-position: 0% 100%, 50% 100%, 100% 100%
+            }
+
+            100% {
+                background-position: 0% 0%, 50% 0%, 100% 0%
+            }
+        }
+
+        html,
+        body {
+            height: 100%;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-blend-mode: overlay;
+            background-attachment: fixed;
+            background-color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Make input fields stand out but still blend */
+        input.form-control {
+            background: rgba(255, 255, 255, 0.85);
+            border: 1px solid #ccc;
+            color: #333;
+        }
+    </style>
 </head>
 
-<body class="bg-body-tertiary">
+<body>
     <div class="container-fluid col-lg-6 col-10 mx-auto mt-lg-4 mt-3 p-lg-4 p-2 shadow rounded-3">
         <h3 class="text-center text-decoration-underline">Welcome to Temu Express, Sign In</h3>
-        <p style="display: none;" id="errorMsg" class="animate__animated animate__pulse animate__infinite alert alert-danger text-center p-2">Haba now, fill in the inputs
+        <p style="display: none;" id="errorMsg"
+            class="animate__animated animate__pulse animate__infinite alert alert-danger text-center p-2">Haba now, fill
+            in the inputs
             joor</p>
         <input type="email" class="form-control shadow-none my-lg-3 my-2" placeholder="Email" id="email">
         <input type="password" class="form-control shadow-none my-lg-3 my-2" placeholder="Password" id="password">

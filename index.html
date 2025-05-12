@@ -31,20 +31,47 @@
                 background-position: 0% 0%, 50% 0%, 100% 0%
             }
         }
+
+        html,
+        body {
+            height: 100%;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-blend-mode: overlay;
+            background-attachment: fixed;
+            background-color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Make input fields stand out but still blend */
+        input.form-control {
+            background: rgba(255, 255, 255, 0.85);
+            border: 1px solid #ccc;
+            color: #333;
+        }
     </style>
 </head>
 
-<body class="bg-body-tertiary">
-    <div class="container-fluid col-lg-6 col-10 mx-auto mt-lg-5 mt-3 p-lg-4 p-2 shadow rounded-3">
+<body>
+    <div class="container-fluid col-lg-6 col-10 mx-auto mt-lg-5 mt-3 p-lg-4 p-3 shadow rounded-3">
         <h3 class="text-center text-decoration-underline ">Sign Up</h3>
         <p style="display: none;" id="errorMsg"
             class="animate__animated animate__pulse animate__infinite alert alert-danger text-center p-2">Haba now, fill
             in the inputs
             joor</p>
-        <input type="text" class="form-control shadow-none my-lg-3 my-2" placeholder="First Name" id="firstName">
-        <input type="text" class="form-control shadow-none my-lg-3 my-2" placeholder="Last Name" id="lastName">
-        <input type="email" class="form-control shadow-none my-lg-3 my-2" placeholder="Email" id="email">
-        <input type="password" class="form-control shadow-none my-lg-3 my-2" placeholder="Password" id="password">
+        <input type="text" class="form-control shadow-none my-lg-3 my-4" placeholder="First Name" id="firstName">
+        <input type="text" class="form-control shadow-none my-lg-3 my-4" placeholder="Last Name" id="lastName">
+        <input type="email" class="form-control shadow-none my-lg-3 my-4" placeholder="Email" id="email">
+        <input type="password" class="form-control shadow-none my-lg-3 my-4" placeholder="Password" id="password">
         <button onclick="signUp()" class="btn btn-dark my-3 w-100">
             <span id="sub">Submit</span>
         </button>

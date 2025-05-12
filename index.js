@@ -1,3 +1,8 @@
+document.addEventListener('keydown', (e)=>{
+    if(e.key === 'Enter') {
+        signUp();
+    }
+});
 
 const toast = (text, background, color, position = 'right') => {
     Toastify({
